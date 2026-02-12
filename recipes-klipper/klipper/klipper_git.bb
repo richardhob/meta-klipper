@@ -31,7 +31,9 @@ SRC_URI = "git://github.com/Klipper3d/klipper;protocol=https;branch=master"
 PV = "1.0+git"
 SRCREV = "48f0b3cad6d4593746384bf49a39913dcb8cc796"
 
-RDEPENDS:${PN} = "python3 python3-jinja2 python3-markupsafe python3-greenlet python3-pyserial avr-binutils avr-gcc"
+# python3 from meta-python maybe?
+# avr-gcc from meta-microcontroller
+RDEPENDS:${PN} = "python3 python3-jinja2 python3-markupsafe python3-greenlet python3-pyserial avr-gcc"
 
 # NOTE: this is a Makefile-only piece of software, so we cannot generate much of the
 # recipe automatically - you will need to examine the Makefile yourself and ensure
