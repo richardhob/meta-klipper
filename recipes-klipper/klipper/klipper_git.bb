@@ -31,9 +31,6 @@ SRC_URI = "git://github.com/Klipper3d/klipper;protocol=https;branch=master"
 PV = "1.0+git"
 SRCREV = "48f0b3cad6d4593746384bf49a39913dcb8cc796"
 
-# NOTE: the following library dependencies are unknown, ignoring: c_nano termcap gcc setupapi hid
-#       (this is based on recipes that have previously been built and packaged)
-# NOTE: some of these dependencies may be optional, check the Makefile and/or upstream documentation
 RDEPENDS:${PN} = "python3 python3-jinja2 python3-markupsafe python3-greenlet python3-pyserial avr-binutils avr-gcc"
 
 # NOTE: this is a Makefile-only piece of software, so we cannot generate much of the
