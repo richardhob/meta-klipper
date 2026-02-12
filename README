@@ -1,27 +1,16 @@
-This README file contains information on the contents of the meta-klipper layer.
+meta-klipper
+============
 
-Please see the corresponding sections below for details.
+Yocto layer for installing klipper onto the system. 
 
 Dependencies
 ============
 
-  URI: <first dependency>
-  branch: <branch name>
+  URI: github.com/Klipper3d/klipper
+  branch: master (consider using tag 1.3.0)
 
-  URI: <second dependency>
-  branch: <branch name>
-
-  .
-  .
-  .
-
-Patches
-=======
-
-Please submit any patches against the meta-klipper layer to the xxxx mailing list (xxxx@zzzz.org)
-and cc: the maintainer:
-
-Maintainer: XXX YYYYYY <xxx.yyyyyy@zzzzz.com>
+  URI: github.com/richardhob/meta-microcontroller
+  branch: whinlatter
 
 Table of Contents
 =================
@@ -33,9 +22,10 @@ Table of Contents
 I. Adding the meta-klipper layer to your build
 =================================================
 
-Run 'bitbake-layers add-layer meta-klipper'
+1. Add `meta-microcontroller` and its dependencies to your project
+2. Run 'bitbake-layers add-layer meta-klipper'
 
 II. Misc
 ========
 
---- replace with specific information about the meta-klipper layer ---
+TODO
