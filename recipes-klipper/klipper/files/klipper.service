@@ -10,4 +10,4 @@ WantedBy=multi-user.target
 Type=simple
 User=klipper
 RemainAfterExit=yes
-ExecStart=/usr/bin/python /usr/bin/klipper/klippy.py /home/klipper/printer.cfg -l /home/klipper/klipper.log \
+ExecStart=/usr/bin/python3 /home/klipper/klipper/klippy/klippy.py /home/klipper/printer.cfg -l /home/klipper/klipper.service.log

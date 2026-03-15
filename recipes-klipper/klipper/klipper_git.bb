@@ -61,10 +61,23 @@ do_compile () {
     :
 }
 
-FILES:${PN} += "${bindir}/klipper/**/*"
+FILES:${PN} += "\
+    /home/klipper/klipper/COPYING \
+    /home/klipper/klipper/Makefile \
+    /home/klipper/klipper/README.md \
+    /home/klipper/klipper/config/**/* \
+    /home/klipper/klipper/docs/**/* \
+    /home/klipper/klipper/klippy/**/* \
+    /home/klipper/klipper/lib/**/* \
+    /home/klipper/klipper/scripts/**/* \
+    /home/klipper/klipper/src/**/* \
+    /home/klipper/klipper/test/**/* \
+"
 
 do_install () {
-    install -d ${D}/${bindir}/klipper/klippy
-    cp -r --no-preserve=ownership ${S}/klippy ${D}/${bindir}/klipper
+    install -d ${D}/home/klipper/klipper
+    cp -r --no-preserve=ownership ${S}/* ${D}/home/klipper/klipper
+    rm ${D}/home/klipper/klipper/lib/.gitignore
 }
 
+INSANE_SKIP:${PN} += " file-rdeps"
