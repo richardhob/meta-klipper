@@ -4,7 +4,7 @@ inherit useradd
 include klipper.inc
 
 USERADD_PACKAGES = "${PN}"
-USERADD_PARAM:${PN} = "-u 1000 -p ${KLIPPER_USERNAME} -d /home/${KLIPPER_USERNAME} -G dialout,plugdev -r -s /bin/bash ${KLIPPER_USERNAME};"
+USERADD_PARAM:${PN} = "-u 1000 -p ${KLIPPER_USERNAME} -d /home/${KLIPPER_USERNAME} -G dialout,plugdev -r -s /bin/sh ${KLIPPER_USERNAME};"
 LICENSE = "CLOSED"
 
 do_install() {

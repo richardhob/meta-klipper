@@ -42,10 +42,10 @@ RDEPENDS:${PN} = "\
     python3-pyserial \
     avr-gcc \
     avr-libc \
-    avrdude \
-    klipper_user \
-    klipper_service \
+    klipper-user \
+    klipper-systemd-service \
 "
+# avrdude \ -> Error when building
 
 # NOTE: this is a Makefile-only piece of software, so we cannot generate much of the
 # recipe automatically - you will need to examine the Makefile yourself and ensure
