@@ -61,10 +61,10 @@ do_compile () {
     :
 }
 
-FILES:${PN} += "${D}${bindir}/klipper/**/*"
+FILES:${PN} += "${bindir}/klipper/**/*"
 
 do_install () {
-    install -d ${D}${bindir}/klipper/klippy
+    install -d ${D}/${bindir}/klipper/klippy
     cp -r --no-preserve=ownership ${S}/klippy ${D}/${bindir}/klipper
 }
 
