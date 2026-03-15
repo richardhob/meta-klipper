@@ -31,9 +31,21 @@ SRC_URI = "git://github.com/Klipper3d/klipper;protocol=https;branch=master"
 PV = "1.0+git"
 SRCREV = "48f0b3cad6d4593746384bf49a39913dcb8cc796"
 
-# python3 from meta-python maybe?
+# python3 from meta-python
 # avr-gcc from meta-microcontroller
-RDEPENDS:${PN} = "python3 python3-jinja2 python3-markupsafe python3-greenlet python3-pyserial avr-gcc"
+RDEPENDS:${PN} = "\
+    python3 \
+    python3 \
+    python3-jinja2 \
+    python3-markupsafe \
+    python3-greenlet \
+    python3-pyserial \
+    avr-gcc \
+    avr-libc \
+    avrdude \
+    klipper_user \
+    klipper_service \
+"
 
 # NOTE: this is a Makefile-only piece of software, so we cannot generate much of the
 # recipe automatically - you will need to examine the Makefile yourself and ensure
@@ -49,13 +61,10 @@ do_compile () {
     :
 }
 
-FILES:${PN} += "/klipper/**/*"
+FILES:${PN} += "${D}${bindir}/klipper/**/*"
 
 do_install () {
-	# NOTE: unable to determine what to put here - there is a Makefile but no
-	# target named "install", so you will need to define this yourself
-    bbplain "${FILES_${PN}}"
-    install -d ${D}/klipper/klippy
-    cp -r --no-preserve=ownership ${S}/klippy ${D}/klipper
+    install -d ${D}${bindir}/klipper/klippy
+    cp -r --no-preserve=ownership ${S}/klippy ${D}/${bindir}/klipper
 }
 
