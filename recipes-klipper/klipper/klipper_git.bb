@@ -35,11 +35,11 @@ SRCREV = "48f0b3cad6d4593746384bf49a39913dcb8cc796"
 # avr-gcc from meta-microcontroller
 RDEPENDS:${PN} = "\
     python3 \
-    python3 \
     python3-jinja2 \
     python3-markupsafe \
     python3-greenlet \
     python3-pyserial \
+    python3-cffi \
     avr-gcc \
     avr-libc \
     avrdude \
@@ -62,22 +62,22 @@ do_compile () {
 }
 
 FILES:${PN} += "\
-    /home/klipper/klipper/COPYING \
-    /home/klipper/klipper/Makefile \
-    /home/klipper/klipper/README.md \
-    /home/klipper/klipper/config/**/* \
-    /home/klipper/klipper/docs/**/* \
-    /home/klipper/klipper/klippy/**/* \
-    /home/klipper/klipper/lib/**/* \
-    /home/klipper/klipper/scripts/**/* \
-    /home/klipper/klipper/src/**/* \
-    /home/klipper/klipper/test/**/* \
+    ${bindir}/klipper/COPYING \
+    ${bindir}/klipper/Makefile \
+    ${bindir}/klipper/README.md \
+    ${bindir}/klipper/config/**/* \
+    ${bindir}/klipper/docs/**/* \
+    ${bindir}/klipper/klippy/**/* \
+    ${bindir}/klipper/lib/**/* \
+    ${bindir}/klipper/scripts/**/* \
+    ${bindir}/klipper/src/**/* \
+    ${bindir}/klipper/test/**/* \
 "
 
 do_install () {
-    install -d ${D}/home/klipper/klipper
-    cp -r --no-preserve=ownership ${S}/* ${D}/home/klipper/klipper
-    rm ${D}/home/klipper/klipper/lib/.gitignore
+    install -d ${D}/${bindir}/klipper
+    cp -r --no-preserve=ownership ${S}/* ${D}/${bindir}/klipper
+    rm ${D}/${bindir}/klipper/lib/.gitignore
 }
 
 INSANE_SKIP:${PN} += " file-rdeps"
