@@ -25,7 +25,10 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=1ebbd3e34237af26da5dc08a4e440464 \
                     file://lib/hidflash/LICENSE;md5=673b05de02d54440e1fb1fa1f3bb889b \
                     file://lib/kconfiglib/LICENSE.txt;md5=712177a72a3937909543eda3ad1bfb7c"
 
-SRC_URI = "git://github.com/Klipper3d/klipper;protocol=https;branch=master"
+SRC_URI = "\
+    git://github.com/Klipper3d/klipper;protocol=https;branch=master \
+    file://Makefile \
+"
 
 # Modify these as desired
 PV = "1.0+git"
@@ -53,13 +56,13 @@ RDEPENDS:${PN} = "\
 
 do_configure () {
 	# Specify any needed configure commands here
-	:
+	cp ${S}/../Makefile ${S}/klippy/chelper
 }
 
 do_compile () {
-	# You will almost certainly need to add additional arguments here
-    :
-    oemake 
+	cd klippy/chelper
+    oemake
+    oemake clean_obj
 }
 
 FILES:${PN} += "\
