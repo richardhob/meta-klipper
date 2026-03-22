@@ -10,7 +10,7 @@ SRC := pyhelper.c serialqueue.c stepcompress.c steppersync.c \
 HEADERS := list.h serialqueue.h stepcompress.h steppersync.h \
     itersolve.h pyhelper.h trapq.h pollreactor.h msgblock.h
 
-myCFLAGS = -Wall -g -shared -o2 -fPIC -flto -fwhole-program -fno-user-linker-plugin
+myCFLAGS = -Wall -g -shared -o2 -fPIC -flto -fwhole-program -fno-use-linker-plugin
 
 LIB := c_helper.so
 OBJ := ${SRC:.c=.o}
@@ -19,7 +19,7 @@ OBJ := ${SRC:.c=.o}
 all: ${LIB}
 
 ${LIB}: ${OBJ}
-	${LD} ${LDFLAGS} ${myCFLAGS} $< -o $@
+	${CC} ${LDFLAGS} ${myCFLAGS} $< -o $@
 
 %.o: %.c
 	${CC} ${CFLAGS} ${myCFLAGS} -c $< -o $@

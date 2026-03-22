@@ -61,8 +61,8 @@ do_configure () {
 
 do_compile () {
 	cd klippy/chelper
-    oemake
-    oemake clean_obj
+    oe_runmake
+    oe_runmake clean_obj
 }
 
 FILES:${PN} += "\
